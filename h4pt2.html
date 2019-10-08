@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment #4: Part 2</title>
+        <style type="text/css">
+            h1{
+            text-align: center;
+            }
+            p{
+            text-align: center;
+            }
+            form{
+            text-align: center;
+            }
+        </style>
+        <script langauge="javascript" type="text/javascript">
+      
+            var prices = {"hotdog_price": 3.25, "fries_price": 2.00, "drink_price": 1.50};
+            //prices.hotdog_price returns 3.25
+            var quantities = {"hotdog_num": document.getElementById("hotdogs").value, "fries_num": document.getElementById("fries").value, "drink_num": document.getElementById("drinks").value};
+            //quantities.hotdog_num returns user input 
+            var subtotal = 0;
+            var tax = 0.0625;
+            var discount = 0.1;
+            
+        </script>
+    </head>
+   
+    <body>
+        <h1>Welcome to Joe's Hotdog Stand</h1>
+        <p>We sell hotdogs ($3.25 each), fries ($2.00 each), and drinks ($1.50 each)!</p>
+        
+        <form>
+        How many orders of hotdogs would you like?
+        <input type="text" id="hotdogs" value="Enter quantity here"><br>
+            
+        How many orders of fries would you like?
+        <input type="text" id="fries" value="Enter quantity here"><br>
+            
+        How many drink orders would you like?
+        <input type="text" id="drinks" value="Enter quantity here"><br>
+            
+        <input type="button" onclick="order_info();" value="Order">
+        </form>
+        
+        <script language="javascript" type="text/javascript">
+        
+        function order_info(){
+        document.write("You have ordered " + quantities.hotdog_num + " hotdog(s), " + quantities.fries_num + " fry/fries, and " + quantities.drink_num + "drink(s).");
+        
+        new subtotal = quantities.hotdog_num * prices.hotdog_price + quantities.fries_num * prices.fries_price + quantities.drink_num * prices.drink_price;
+        document.write("Your subtotal is: $" + subtotal);
+            
+        if (subtotal >= 20){
+            var total += (subtotal * discount) * tax;
+            document.write("Your discount is: $" + subtotal * discount);
+            document.write("Your tax is: $" + subtotal * tax);
+            document.write("Your total is: $" + total);
+        } else{
+            var total += subtotal * tax;
+            document.write("Your tax is: $" + subtotal * tax);
+            document.write("Your total is: $" + total);
+            }
+        
+        } 
+        </script>
+        
+    </body>
+</html>
